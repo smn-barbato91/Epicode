@@ -20,21 +20,42 @@ public class CorsoDemo {
 			numero = in.nextInt();
 		}
 
-		Studente[] nuoviStud = new Studente[numero];
-		Abilita[] a = new Abilita[numero];
-
 		in.nextLine(); // Pulisce il buffer
 
 		for (int i = 0; i < numero; i++) {
 
 			System.out.println(
 					"Inserisci in quest'ordine Nome,Cognome,Data di nascita,CodiceFiscale dello studente " + (i + 1));
-			nuoviStud[i] = new Studente(in.nextLine(), in.nextLine(), in.nextLine(), in.nextLine());
-			System.out.println("Scrivi in quest'ordine le varie caratteristiche dello studente " + nuoviStud[i].nome);
+			primaEdizione.studentiIscritti[i] = new Studente(in.nextLine(), in.nextLine(), in.nextLine(),
+					in.nextLine());
+			System.out.println("Scrivi in quest'ordine le varie caratteristiche dello studente "
+					+ primaEdizione.studentiIscritti[i].nome);
 			System.out.println(
-					"1) Materia preferita " + "2)Argomento preferito " + "3)Livello abilità(basso/medio/alto)");
-			a[i] = new Abilita(in.nextLine(), in.nextLine(), in.nextLine());
-			primaEdizione.studentiIscritti[i] = nuoviStud[i];
+					"1) Materia preferita " + "2)Argomento preferito " + "3)Livello abilità(basso/medio/alto/guru)");
+			String materia = in.nextLine();
+			String argomento = in.nextLine();
+			String livelloString = in.nextLine();
+			Livello livello = null;
+			do {
+				if(livelloString.equalsIgnoreCase("basso")) {
+					livello = Livello.PRINCIPIANTE;
+				} else if(livelloString.equalsIgnoreCase("medio")){
+					livello = Livello.INTERMEDIO;
+				} else if(livelloString.equalsIgnoreCase("alto")){
+					livello = Livello.AVANZATO;
+				} else if (livelloString.equalsIgnoreCase("guru")){
+					livello = Livello.GURU;
+					
+				} else {
+					System.out.println("Devi inserire una delle stringhe: basso/medio/alto/guru");
+					System.out.println("Prova di nuovo:");
+					livelloString = in.nextLine();
+				}
+			} while (livello == null);
+			
+			
+			primaEdizione.studentiIscritti[i].listaAbilita[i] = new Abilita(materia,argomento,livello);
+					
 			primaEdizione.contaStudenti++;
 
 		}

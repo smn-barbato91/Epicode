@@ -2,13 +2,13 @@ package it.epicode.EserciziPrimaSettimana;
 
 public class Edizione {
 
-	public Corso corso = new Corso();
+	public Corso corso;
 	public String codice; // Esempio BE0321 per il corso back end
 	public String dataDiPartenza;
 	public String dataDiChiusura;
 	public static int NUM_MAX_STUDENTI = 10;
 	public Studente[] studentiIscritti = new Studente[NUM_MAX_STUDENTI];
-	public Docente doc = new Docente();
+	public Docente doc;
 	public int contaStudenti;
 
 	public Edizione(Corso corso, String codice, String dataDiPartenza, String dataDiChiusura, Docente doc) {
@@ -34,9 +34,15 @@ public class Edizione {
 		System.out.println("ELENCO STUDENTI");
 
 		for (int i = 0; i < contaStudenti; i++) {
-
-			System.out.println(studentiIscritti[i].nome + " " + studentiIscritti[i].cognome);
-
+			if (studentiIscritti[i] != null) {
+				System.out.println(studentiIscritti[i].nome + " " + studentiIscritti[i].cognome);
+				for (int j = 0; j < studentiIscritti[i].listaAbilita.length; j++) {
+					if (studentiIscritti[i].listaAbilita[j] != null) {
+						System.out.println(studentiIscritti[i].listaAbilita[j].nome);
+						System.out.println(studentiIscritti[i].listaAbilita[j].livello);
+					}
+				}
+			}
 		}
 
 	}

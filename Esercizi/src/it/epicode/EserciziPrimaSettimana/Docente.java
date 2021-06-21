@@ -12,7 +12,4 @@ public class Docente {
 		this.liberoProfessionista = liberoProfessionista;
 	}
 
-	public Docente() {
-		
-	}
 }
