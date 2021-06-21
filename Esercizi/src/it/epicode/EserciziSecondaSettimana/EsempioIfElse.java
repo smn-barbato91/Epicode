@@ -11,20 +11,20 @@ public class EsempioIfElse {
 
 		return pari;
 	}
-	
+
 	public static boolean annoBisestile(int anno) {
-		boolean bisestile = false;
-		if((anno % 100) == 0 && (anno % 400) == 0) {
-			bisestile = true;
-		} else if((anno % 4) == 0) {
-			bisestile = true;
+		if (anno % 4 == 0 && anno % 100 == 0 && anno % 400 == 0) {
+			return true;
+		} else if (anno % 4 == 0 && anno % 100 != 0) {
+			return true;
+		} else {
+			return false;
 		}
-		return bisestile;
 	}
 
 	public static void main(String[] args) {
 		String s = "Ciao mondo";
-		int anno = 2020;
+		int anno = 200;
 		System.out.println(stringaPariDispari(s));
 		System.out.println(annoBisestile(anno));
 	}
