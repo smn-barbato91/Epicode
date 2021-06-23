@@ -8,8 +8,8 @@ public class GestioneDipendenti {
 		Dipendente d3 = new Dipendente("HHHTTT1240", Livello.IMPIEGATO, Dipartimento.AMMINISTRAZIONE);
 		Dipendente d4 = new Dipendente("LMOPO56678", Livello.DIRIGENTE, Dipartimento.VENDITE);
 		
-		d2.promuovi(d2); //ora d2 passa da operaio a impiegato
-		d3.promuovi(d3);// d3 passa da impiegato a quadro
+		d2.promuovi(); //ora d2 passa da operaio a impiegato
+		d3.promuovi();// d3 passa da impiegato a quadro
 		
 		d2.stampaDipendente();
 		d3.stampaDipendente();

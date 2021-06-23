@@ -82,19 +82,19 @@ public class Dipendente {
 
 	}
 
-	public Livello promuovi(Dipendente d) {
+	public Livello promuovi() {
 
-		switch (d.livello) {
+		switch (this.livello) {
 		case OPERAIO:
-			d.livello = Livello.IMPIEGATO;
+			this.livello = Livello.IMPIEGATO;
 			break;
 		case IMPIEGATO:
-			d.livello = Livello.QUADRO;
+			this.livello = Livello.QUADRO;
 			break;
 		case QUADRO:
-			d.livello = Livello.DIRIGENTE;
+			this.livello = Livello.DIRIGENTE;
 		case DIRIGENTE:
-			d.livello = Livello.DIRIGENTE;
+			this.livello = Livello.DIRIGENTE;
 			break;
 		default:
 			System.exit(0);
