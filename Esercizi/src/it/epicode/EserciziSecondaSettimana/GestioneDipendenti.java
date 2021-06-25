@@ -3,7 +3,7 @@ package it.epicode.EserciziSecondaSettimana;
 public class GestioneDipendenti {
 	public static void main(String[] args) {
 
-		Dipendente d1 = new Dipendente("KMJHGF254G", Livello.OPERAIO, Dipartimento.PRODUZIONE);
+		Dipendente d1 = new Dipendente("KMJHGF254G", Dipartimento.PRODUZIONE);
 		Dipendente d2 = new Dipendente("ABCDEF1234", Livello.OPERAIO, Dipartimento.PRODUZIONE);
 		Dipendente d3 = new Dipendente("HHHTTT1240", Livello.IMPIEGATO, Dipartimento.AMMINISTRAZIONE);
 		Dipendente d4 = new Dipendente("LMOPO56678", Livello.DIRIGENTE, Dipartimento.VENDITE);
@@ -19,8 +19,8 @@ public class GestioneDipendenti {
 		System.out.println("La somma degli stipendi dei quattro impiegati,compresi gli straordinari è : " + somma);
 		
 	}
-
-	public static double calcolaPaga(Dipendente d) {
+	
+	static double calcolaPaga(Dipendente d) {
 		return d.getStipendio();
 	}
 

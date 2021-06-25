@@ -16,24 +16,23 @@ public class Dipendente {
 		this.livello = livello.OPERAIO;
 	}
 
-	public Dipendente(String matricola, Livello livello, Dipartimento dipartimento) {
+	public Dipendente(String matricola,Livello livello, Dipartimento dipartimento) {
 
 		this.matricola = matricola;
 		this.importoOrarioStraordinario = 30;
 		
 
-		if (livello.equals(livello.OPERAIO)) 
+		if (livello.equals(livello.OPERAIO))
 			this.stipendio = stipendioBase;
-		
-		if (livello.equals(livello.IMPIEGATO)) 
+
+		if (livello.equals(livello.IMPIEGATO))
 			this.stipendio = stipendioBase * 1.2;
-		
-		if (livello.equals(livello.QUADRO)) 
+
+		if (livello.equals(livello.QUADRO))
 			this.stipendio = stipendioBase * 1.5;
-		
-		if (livello.equals(livello.DIRIGENTE)) 
+
+		if (livello.equals(livello.DIRIGENTE))
 			this.stipendio = stipendioBase * 2;
-		
 
 		this.livello = livello;
 
