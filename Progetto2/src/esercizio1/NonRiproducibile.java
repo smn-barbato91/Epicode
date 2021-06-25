@@ -1,19 +1,14 @@
 package esercizio1;
 
-public abstract class NonRiproducibile extends ElementoMultimediale{
-	int luminosita;
-	
-	public NonRiproducibile(String titolo,int luminosita) {
+public abstract class NonRiproducibile extends ElementoMultimediale {
+
+	public NonRiproducibile(String titolo) {
 		super(titolo);
-		this.luminosita = luminosita;
+
 	}
+
+	public abstract void show(); 
+
 	
-	public void show() {
-		
-		String lum = "";
-		for (int i = 0; i < luminosita; i++) {
-			lum = lum + "*";
-		}
-		System.out.println(getTitolo() + lum);
-	}
+	
 }

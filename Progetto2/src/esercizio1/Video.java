@@ -2,27 +2,17 @@ package esercizio1;
 
 public class Video extends Riproducibile {
 	private int luminosita;
-	private int volume;
+	
 
 	public Video(String titolo, int durata, int volume, int luminosita) {
-		super(titolo, durata);
+		super(titolo, durata,volume);
 		this.luminosita = luminosita;
-		this.volume = volume;
+		
 
 	}
 
 	public int getLuminosita() {
 		return this.luminosita;
-	}
-
-	@Override
-	public void alzaVolume() {
-		this.volume = volume + 1;
-	}
-
-	@Override
-	public void abbassaVolume() {
-		this.volume = volume - 1;
 	}
 
 	public void aumentaLuminosita() {
@@ -37,16 +27,16 @@ public class Video extends Riproducibile {
 	public void play() {
 
 		String lum = "";
-		String puntoEsclamativo = "";
+		String puntiEsclamativi = "";
 
 		for (int i = 0; i < luminosita; i++) {
 			lum = lum + "*";
 		}
-		for (int i = 0; i < volume; i++) {
-			puntoEsclamativo = puntoEsclamativo + "!";
+		for (int i = 0; i < getVolume(); i++) {
+			puntiEsclamativi = puntiEsclamativi + "!";
 		}
 		for (int i = 0; i < getDurata(); i++) {
-			System.out.println(getTitolo() + (puntoEsclamativo) + lum);
+			System.out.println(getTitolo() + (puntiEsclamativi) + lum);
 		}
 
 	}

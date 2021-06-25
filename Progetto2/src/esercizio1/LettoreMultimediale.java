@@ -4,10 +4,12 @@ import java.util.Scanner;
 
 public class LettoreMultimediale {
 
-	public static void main(String[] args) {
+	private ElementoMultimediale[] elementi = new ElementoMultimediale[5];
+	private Scanner tastiera = new Scanner(System.in);
 
-		Scanner tastiera = new Scanner(System.in);
-		ElementoMultimediale[] elementi = new ElementoMultimediale[5];
+
+	public void caricaElementi() {
+
 		String risposta = "";
 
 		for (int i = 0; i < elementi.length; i++) {
@@ -15,39 +17,23 @@ public class LettoreMultimediale {
 			risposta = tastiera.nextLine();
 
 			if (risposta.equalsIgnoreCase("Registrazione audio")) {
-
-				System.out.println("Specificare Titolo, Durata, Volume");
-				String titolo = tastiera.nextLine();
-				int durata = tastiera.nextInt();
-
-				int volume = tastiera.nextInt();
-
-				elementi[i] = new RegistrazioneAudio(titolo, durata, volume);
+				RegistrazioneAudio ra = creaRegistrazioneAudio();
+				elementi[i] = ra;
 
 			} else if (risposta.equalsIgnoreCase("Video")) {
-
-				System.out.println("Specificare Titolo, Durata, Volume, Luminosità");
-				String titolo = tastiera.nextLine();
-				int durata = tastiera.nextInt();
-
-				int volume = tastiera.nextInt();
-
-				int luminosita = tastiera.nextInt();
-
-				elementi[i] = new Video(titolo, durata, volume, luminosita);
+				elementi[i] = creaVideo();
 
 			} else if (risposta.equalsIgnoreCase("Immagine")) {
-				System.out.println("Specificare Titolo, Luminosità");
-				String titolo = tastiera.nextLine();
-				int luminosita = tastiera.nextInt();
+				elementi[i] = creaImmagine();
 
-				elementi[i] = new Immagine(titolo, luminosita);
 			}
 
 			tastiera.nextLine();
 
 		}
-
+	}
+	
+	public void esegui() {
 		int ris = 0;
 
 		do {
@@ -56,22 +42,14 @@ public class LettoreMultimediale {
 
 			switch (ris) {
 			case 1:
-				elementi[0].play();
-				break;
 			case 2:
-				elementi[1].play();
-				break;
 			case 3:
-				elementi[2].play();
-				break;
 			case 4:
-				elementi[3].play();
-				break;
 			case 5:
-				elementi[4].play();
+				elementi[ris - 1].execute();
 				break;
 			default:
-				System.exit(0);
+				System.out.println("Arrivederci");
 
 			}
 
@@ -79,4 +57,31 @@ public class LettoreMultimediale {
 
 		tastiera.close();
 	}
+	
+	private RegistrazioneAudio creaRegistrazioneAudio() {
+		System.out.println("Specificare Titolo, Durata, Volume");
+		String titolo = tastiera.nextLine();
+		int durata = tastiera.nextInt();
+		int volume = tastiera.nextInt();
+		RegistrazioneAudio r = new RegistrazioneAudio(titolo, durata, volume);
+		return r;
+	}
+
+	private Video creaVideo() {
+		System.out.println("Specificare Titolo, Durata, Volume, Luminosità");
+		String titolo = tastiera.nextLine();
+		int durata = tastiera.nextInt();
+		int volume = tastiera.nextInt();
+		int luminosita = tastiera.nextInt();
+		return new Video(titolo, durata, volume, luminosita);
+
+	}
+
+	private Immagine creaImmagine() {
+		System.out.println("Specificare Titolo, Luminosità");
+		String titolo = tastiera.nextLine();
+		int luminosita = tastiera.nextInt();
+		return new Immagine(titolo, luminosita);
+	}
+
 }

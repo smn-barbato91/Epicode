@@ -5,8 +5,9 @@ public abstract class Riproducibile extends ElementoMultimediale {
 	private int durata;
 	private int volume;
 
-	public Riproducibile(String titolo, int durata) {
+	public Riproducibile(String titolo, int durata,int volume) {
 		super(titolo);
+		this.volume = volume;
 		this.durata = durata;
 	}
 
@@ -18,8 +19,18 @@ public abstract class Riproducibile extends ElementoMultimediale {
 		return this.volume;
 	}
 
-	public abstract void alzaVolume();
-
-	public abstract void abbassaVolume();
+	public void alzaVolume() {
+		this.volume++;
+	}
+	
+	public void abbassaVolume() {
+		this.volume--;
+	}
+	public abstract void play();
+	
+	@Override
+	public void execute() {
+		play();
+	}
 
 }

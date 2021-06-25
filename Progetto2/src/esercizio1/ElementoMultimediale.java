@@ -11,7 +11,7 @@ public abstract class ElementoMultimediale {
 		return this.titolo;
 	}
 	
-	public abstract void play();
+	public abstract void execute();
 	
 	
 }
