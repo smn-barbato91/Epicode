@@ -5,47 +5,41 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 public class Rubrica {
+
 	private Map<String, String> listaContatti = new HashMap<String, String>();
 
-	public Map<String, String> getListaContatti() {
-		return this.listaContatti;
+//	public Map<String, String> getListaContatti() {
+//		return this.listaContatti;
+//	}
+
+	public String creaNuovoContatto(String key, String value) {
+
+		String oldValue = listaContatti.put(key, value);
+
+		return oldValue;
 	}
 
-	public boolean creaNuovoContatto(String key, String value) {
+	public String cancellaContatto(String key) {
 
-		listaContatti.put(key, value);
+		String removedValue = listaContatti.remove(key);
 
-		return true;
-	}
-
-	public boolean cancellaContatto(String key) {
-
-		if (listaContatti.remove(key) != null) {
-			return true;
-		}
-
-		return false;
+		return removedValue;
 
 	}
 
 	public String searchNameByNumber(String numero) {
 
 		for (Map.Entry<String, String> n : listaContatti.entrySet()) {
-			if (n.getValue() == numero) {
+			if (n.getValue().equals(numero)) {
 				return n.getKey();
 			}
 		}
-		return "Nessun risultato trovato";
+		return null;
 	}
 
 	public String searchNumberByName(String nome) {
 
-		for (Map.Entry<String, String> n : listaContatti.entrySet()) {
-			if (n.getKey() == nome) {
-				return n.getValue();
-			}
-		}
-		return "Nessun risultato trovato";
+		return listaContatti.get(nome);
 	}
 
 	public void stampaRubrica() {
