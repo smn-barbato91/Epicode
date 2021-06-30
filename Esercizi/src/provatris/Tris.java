@@ -25,15 +25,15 @@ public class Tris {
 
 	private void creaGriglia() {
 
-		griglia[0][0] = "-";
-		griglia[0][1] = "-";
-		griglia[0][2] = "-";
-		griglia[1][0] = "-";
-		griglia[1][1] = "-";
-		griglia[1][2] = "-";
-		griglia[2][0] = "-";
-		griglia[2][1] = "-";
-		griglia[2][2] = "-";
+		griglia[0][0] = "[-]";
+		griglia[0][1] = "[-]";
+		griglia[0][2] = "[-]";
+		griglia[1][0] = "[-]";
+		griglia[1][1] = "[-]";
+		griglia[1][2] = "[-]";
+		griglia[2][0] = "[-]";
+		griglia[2][1] = "[-]";
+		griglia[2][2] = "[-]";
 
 		for (int i = 0; i < 3; i++) {
 
@@ -56,14 +56,14 @@ public class Tris {
 
 			String c = griglia[riga - 1][colonna - 1];
 
-			if (c.equals("-")) {
+			if (c.equals("[-]")) {
 
-				c = "X";
+				c = "[X]";
 				griglia[riga - 1][colonna - 1] = c;
 
 				inserito = true;
 
-			} else if (!c.equals("-")) {
+			} else if (!c.equals("[-]")) {
 
 				System.out.println("Posizione già occupata. Riprova");
 
@@ -103,14 +103,14 @@ public class Tris {
 
 			String c = griglia[riga - 1][colonna - 1];
 
-			if (c.equals("-")) {
+			if (c.equals("[-]")) {
 
-				c = "O";
+				c = "[O]";
 				griglia[riga - 1][colonna - 1] = c;
 
 				inserito = true;
 
-			} else if (!c.equals("-")) {
+			} else if (!c.equals("[-]")) {
 
 				System.out.println("Posizione già occupata. L'avversario sta riprovando...");
 
@@ -140,10 +140,14 @@ public class Tris {
 
 		contaTurni++;
 
-		if (contaTurni == 4) {
+		if (contaTurni == 4 && (getVincitore() == "X" || getVincitore() == "O")) {
+			
+			System.out.println("Vince il giocatore " + getVincitore());
+		} else if (contaTurni == 4){
 			System.out.println("PAREGGIO");
 			System.exit(0);
 		}
+		
 
 		return contaTurni;
 
@@ -158,13 +162,13 @@ public class Tris {
 			int h = 0;
 
 			for (int j = 0; j < COLONNE; j++) {
-				if (griglia[i][j].equals("X"))
+				if (griglia[i][j].equals("[X]"))
 					k++;
 
 				if (k == 3)
 					return "Vince il giocatore X";
 
-				if (griglia[i][j].equals("O"))
+				if (griglia[i][j].equals("[O]"))
 
 					h++;
 
@@ -181,13 +185,13 @@ public class Tris {
 			int h = 0;
 
 			for (int j = 0; j < RIGHE; j++) {
-				if (griglia[j][i].equals("X"))
+				if (griglia[j][i].equals("[X]"))
 					k++;
 
 				if (k == 3)
 					return "Vince il giocatore X";
 
-				if (griglia[j][i].equals("O"))
+				if (griglia[j][i].equals("[O]"))
 
 					h++;
 
@@ -204,13 +208,13 @@ public class Tris {
 
 			int j = i;
 
-			if (griglia[i][j].equals("X"))
+			if (griglia[i][j].equals("[X]"))
 				k++;
 
 			if (k == 3)
 				return "Vince il giocatore X";
 
-			if (griglia[i][j].equals("O"))
+			if (griglia[i][j].equals("[O]"))
 
 				h++;
 
@@ -225,13 +229,13 @@ public class Tris {
 		// verifico se il tris è presente nella diagonale sx
 		for (int j = COLONNE - 1, i = 0; j >= 0; j--) {
 
-			if (griglia[i][j].equals("X"))
+			if (griglia[i][j].equals("[X]"))
 				k++;
 
 			if (k == 3)
 				return "Vince il giocatore X";
 
-			if (griglia[i][j].equals("O"))
+			if (griglia[i][j].equals("[O]"))
 
 				h++;
 

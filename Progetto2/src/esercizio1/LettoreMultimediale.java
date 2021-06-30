@@ -3,8 +3,8 @@ package esercizio1;
 import java.util.Scanner;
 
 public class LettoreMultimediale {
-
-	private ElementoMultimediale[] elementi = new ElementoMultimediale[5];
+	private final static int DIMENSIONE_MAX = 5;
+	private ElementoMultimediale[] elementi = new ElementoMultimediale[DIMENSIONE_MAX];
 	private Scanner tastiera = new Scanner(System.in);
 
 
@@ -50,7 +50,6 @@ public class LettoreMultimediale {
 				break;
 			default:
 				System.out.println("Arrivederci");
-
 			}
 
 		} while (ris != 0);

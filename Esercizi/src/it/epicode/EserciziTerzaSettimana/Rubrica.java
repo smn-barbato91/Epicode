@@ -3,10 +3,11 @@ package it.epicode.EserciziTerzaSettimana;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.TreeMap;
 
 public class Rubrica {
 
-	private Map<String, String> listaContatti = new HashMap<String, String>();
+	private Map<String, String> listaContatti = new TreeMap<String, String>();
 
 //	public Map<String, String> getListaContatti() {
 //		return this.listaContatti;

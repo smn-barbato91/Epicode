@@ -16,8 +16,8 @@ public class StartRubrica {
 
 		System.out.println(r.searchNameByNumber("345654333"));
 		System.out.println(r.searchNumberByName("Topolino"));
-		r.cancellaContatto("Topolino");
-		r.cancellaContatto("Franco");
+//		r.cancellaContatto("Topolino");
+//		r.cancellaContatto("Franco");
 
 		r.stampaRubrica();
 
