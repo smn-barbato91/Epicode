@@ -1,6 +1,6 @@
 package esercizio1;
 
-public class Libro extends Rivista{
+public class Libro extends Pubblicazione{
 	private Autore a;
 	private String genere;
 	
@@ -16,6 +16,11 @@ public class Libro extends Rivista{
 	
 	public Autore getAutore() {
 		return this.a;
+	}
+	
+	@Override
+	public String toString() {
+		return stampaCaratteristiche();
 	}
 }
 

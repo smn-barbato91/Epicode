@@ -8,17 +8,17 @@ import java.util.stream.Collectors;
 
 public class Archivio {
 
-	private List<Rivista> archivio = new ArrayList<Rivista>();
+	private List<Pubblicazione> archivio = new ArrayList<Pubblicazione>();
 
-	public void aggiungiElemento(Rivista r) {
+	public void aggiungiElemento(Pubblicazione p) {
 
-		archivio.add(r);
+		archivio.add(p);
 	}
 
 	public String cercaPerCodice(String isbn) {
-		for (Rivista r : archivio) {
-			if (isbn.equals(r.getCodiceIsbn())) {
-				return r.stampaCaratteristiche();
+		for (Pubblicazione p : archivio) {
+			if (isbn.equals(p.getCodiceIsbn())) {
+				return p.stampaCaratteristiche();
 			}
 		}
 
@@ -26,9 +26,9 @@ public class Archivio {
 	}
 
 	public String rimuoviElemento(String c) {
-		for (Rivista r : archivio) {
-			if (c.equals(r.getCodiceIsbn())) {
-				archivio.remove(r);
+		for (Pubblicazione p : archivio) {
+			if (c.equals(p.getCodiceIsbn())) {
+				archivio.remove(p);
 				return "Elemento rimosso";
 			}
 		}
@@ -49,8 +49,8 @@ public class Archivio {
 	}
 
 	public void stampaArchivio() {
-		for (Rivista r : archivio) {
-			System.out.println(r.stampaCaratteristiche());
+		for (Pubblicazione p : archivio) {
+			System.out.println(p.stampaCaratteristiche());
 		}
 	}
 
