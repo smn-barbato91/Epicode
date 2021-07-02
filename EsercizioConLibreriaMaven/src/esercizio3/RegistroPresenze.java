@@ -1,6 +1,7 @@
 package esercizio3;
 
 import java.util.List;
+
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.io.File;
@@ -42,7 +43,8 @@ public class RegistroPresenze {
 //			lista.add(p);
 //		}
 		
-		lista.addAll(Stream.of(readFileToString.split("@")).map(s -> Presenza.fromString(s)).collect(Collectors.toList())); //equivalente a righe 39-42
+		lista.addAll(Stream.of(readFileToString.split("@")).
+				map(s -> Presenza.fromString(s)).collect(Collectors.toList())); //equivalente a righe 39-42
 		
 
 		

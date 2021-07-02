@@ -26,6 +26,7 @@ public class Presenza {
 	public String toString() {
 		return nome + "#" + giorniDiPresenza;
 	}
+	
 	public static Presenza fromString(String s) {
 		String[] elements = s.split("#");
 		Presenza p = new Presenza(elements[0], Integer.valueOf(elements[1]));
