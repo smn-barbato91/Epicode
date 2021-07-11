@@ -1,6 +1,7 @@
 package esercizio1;
 
 import java.io.*;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,16 +36,18 @@ public class Archivio {
 		return null;
 	}
 
-	public List filtraPerAnno(int anno) {
+	public List<String> filtraPerAnno(int anno) {
 		List<String> dati = archivio.stream().filter(i -> i.getAnnoDiPubblicazione() == anno)
 				.map(p -> p.stampaCaratteristiche()).collect(Collectors.toList());
 
 		return dati;
 	}
 
-	public List filtraPerAutore(Autore a) {
+	public List<String> filtraPerAutore(Autore a) {
+		
 		List<String> dati = archivio.stream().filter(i -> i.stampaCaratteristiche().contains(a.getCognome()))
 				.map(p -> p.stampaCaratteristiche()).collect(Collectors.toList());
+		
 		return dati;
 	}
 
@@ -70,7 +73,6 @@ public class Archivio {
 
 	public void leggiFile() throws IOException { // Non sono riuscito ad utilizzare la libreria apache
 
-		File datiRivista = new File("archivio/riviste.txt");
 		String dati = archivio.stream().map(p -> p.toString()).collect(Collectors.joining("@"));
 
 		char[] in = new char[dati.length()];

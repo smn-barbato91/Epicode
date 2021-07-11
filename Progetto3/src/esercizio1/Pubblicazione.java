@@ -1,7 +1,5 @@
 package esercizio1;
 
-import esercizio1.Rivista.Periodicita;
-
 public abstract class Pubblicazione {
 	private String codiceIsbn;
 	protected String titolo;
@@ -32,6 +30,5 @@ public abstract class Pubblicazione {
 	public int getNumeroPagine() {
 		return numeroPagine;
 	}
-	
 
 }
