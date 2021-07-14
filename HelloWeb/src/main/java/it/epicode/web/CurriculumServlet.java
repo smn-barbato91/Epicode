@@ -16,10 +16,7 @@ public class CurriculumServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String redirect = request.getParameter("redirect");
-		if ("1".equals(redirect)) {
-			response.sendRedirect("esercizioCv.html");
-		} else {
+		
 			PrintWriter pw = response.getWriter();
 			response.setContentType("text/html");
 			pw.println("<head>");
@@ -81,7 +78,7 @@ public class CurriculumServlet extends HttpServlet {
 
 		}
 
-	}
+	
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

@@ -16,11 +16,22 @@ public class EuroConverterServlet extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		String tipoSorgente = request.getParameter("daEuro");
+		
+		PrintWriter pw = response.getWriter();
+		response.setContentType("text/html");
+		String sommaSorgente = request.getParameter("daEuro");
 		String tipoDestinazione = request.getParameter("aValuta");
-		double valSorgente = Double.parseDouble(tipoSorgente);
+		double valSorgente = 0;
+
+		try {
+			 valSorgente = Double.parseDouble(sommaSorgente);
+		} catch(NumberFormatException ne) {
+			pw.println("<h1>Devi inserire un numero nel campo di testo</h1>");
+			return;
+		}
+		
 		double result = 0;
+		
 		
 		if(tipoDestinazione.equals("dollaro")) {
 			result = valSorgente * 1.18;
@@ -30,14 +41,14 @@ public class EuroConverterServlet extends HttpServlet {
 			result = valSorgente * 130.00;
 		}
 		
-		PrintWriter pw = response.getWriter();
-		response.setContentType("text/html");
+		
+		
 		pw.println("<p>Il valore della conversione e' "+ result + " </p>");
 		
 			
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		doGet(request, response);
 	}
 

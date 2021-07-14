@@ -21,7 +21,7 @@ public class Tris {
 			inserisciSimboli();
 			getVincitore();
 
-		} while (conta < 4);
+		} while (conta < 4 && contaTurni != 9);
 
 	}
 
@@ -49,6 +49,7 @@ public class Tris {
 
 	private boolean inserisciX() {
 		boolean inserito = true;
+		contaTurni++;
 
 		do {
 			System.out.println("In quale posizione vuoi mettere la X?(specifica riga e colonna)");

@@ -20,7 +20,12 @@ public class CurriculumServletRedirect extends HttpServlet {
 		
 		String redirect = request.getParameter("redirect");
 		
-		if ("1".equals(redirect)) {
+		
+		
+		
+		if(redirect != null && redirect.equals("1")){
+					
+//		if ("1".equals(redirect)) {
 			response.sendRedirect("forms/esercizioCv.html");
 		} else {
 			PrintWriter pw = response.getWriter();
