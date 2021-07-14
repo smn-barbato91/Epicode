@@ -100,7 +100,7 @@ public class Tris implements ActionListener {
 		}
 	}
 
-	public boolean check() { //aggiunta condizione di pareggio
+	public boolean check() { 
 		conta++;
 		// check X win conditions
 		if ((buttons[0].getText() == "X") && (buttons[1].getText() == "X") && (buttons[2].getText() == "X")) {
@@ -168,7 +168,7 @@ public class Tris implements ActionListener {
 			oWins(2, 4, 6);
 			return true;
 		}
-		if (conta == 9) {
+		if (conta == 9) { // aggiunta condizione di pareggio
 			for (int i = 0; i < 9; i++) {
 				buttons[i].setEnabled(false);
 			}

@@ -9,6 +9,7 @@ public class Tris {
 	private int contaTurni = 0;
 	private String[][] griglia = new String[RIGHE][COLONNE];
 	Scanner tastiera = new Scanner(System.in);
+	
 
 	public void gioca() {
 		System.out.println("Giocatore 1 = X");
@@ -18,7 +19,8 @@ public class Tris {
 		int conta = 0;
 		do {
 			inserisciSimboli();
-			controllaFineGioco();
+			getVincitore();
+
 		} while (conta < 4);
 
 	}
@@ -77,7 +79,7 @@ public class Tris {
 	private void inserisciSimboli() {
 
 		inserisciX();
-		getVincitore();
+
 		inserisciO();
 
 		System.out.println(getVincitore());
@@ -136,26 +138,36 @@ public class Tris {
 
 	}
 
-	private int controllaFineGioco() {
-
-		contaTurni++;
-
-		if (contaTurni == 4 && (getVincitore() == "X" || getVincitore() == "O")) {
-			
-			System.out.println("Vince il giocatore " + getVincitore());
-		} else if (contaTurni == 4){
-			System.out.println("PAREGGIO");
-			System.exit(0);
-		}
-		
-
-		return contaTurni;
-
-	}
+//	private int controllaFineGioco() {
+//
+//		contaTurni++;
+//
+//		if (contaTurni == 4 && (getVincitore() == "X" || getVincitore() == "O")) {
+//			
+//			System.out.println("Vince il giocatore " + getVincitore());
+//		} else if (contaTurni == 4){
+//			System.out.println("PAREGGIO");
+//			System.exit(0);
+//		}
+//		
+//
+//		return contaTurni;
+//
+//	}
 
 	private String getVincitore() {
 
 		// Verifico se il tris è presente in una riga
+		
+		boolean piena = griglia[0][0] != "[-]"
+		&& griglia[0][1] != "[-]"
+		&& griglia[0][2] != "[-]"
+		&& griglia[1][0] != "[-]"
+		&& griglia[1][1] != "[-]"
+		&& griglia[1][2] != "[-]"
+		&& griglia[2][0] != "[-]"
+		&& griglia[2][1] != "[-]"
+		&& griglia[2][2] != "[-]";
 
 		for (int i = 0; i < RIGHE; i++) {
 			int k = 0;
@@ -244,6 +256,10 @@ public class Tris {
 				return "Vince il giocatore O";
 			i++;
 
+		}
+
+		if (contaTurni == 8 && piena) {
+			System.out.println("Pareggio");
 		}
 
 		return "";

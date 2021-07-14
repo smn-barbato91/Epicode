@@ -19,6 +19,10 @@ public class Impiegato {
 			System.exit(0);
 		}
 	}
+	
+	public Impiegato() {
+		
+	}
 
 	public int getId() {
 		return id;

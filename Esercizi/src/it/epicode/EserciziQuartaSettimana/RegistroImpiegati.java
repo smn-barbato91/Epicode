@@ -1,12 +1,13 @@
 package it.epicode.EserciziQuartaSettimana;
 
 import java.util.HashMap;
+
 import java.util.Map;
 import java.util.Map.Entry;
 
 public class RegistroImpiegati {
 
-	private Map<Integer, Impiegato> registro = new HashMap<>();// Integer = id impiegato;
+	private Map<Integer, Impiegato> registro;// Integer = id impiegato;
 	private static final double MAX_STIPENDIO_MENSILE = 150000;
 
 	public RegistroImpiegati(Map<Integer, Impiegato> resgistro) {
@@ -16,6 +17,9 @@ public class RegistroImpiegati {
 	public Impiegato getImpiegatoPiuPagato() {
 		double max = 0;
 		Impiegato i = null;
+		if(registro.isEmpty()) {
+			return null;
+		}
 		for (Map.Entry<Integer, Impiegato> coppia : registro.entrySet()) {
 			if (coppia.getValue().getStipendio() > max) {
 				max = coppia.getValue().getStipendio();
@@ -29,6 +33,7 @@ public class RegistroImpiegati {
 
 	public Impiegato getImpiegatoMenoPagato() {
 		Impiegato i = null;
+
 		double min = MAX_STIPENDIO_MENSILE;
 		for (Map.Entry<Integer, Impiegato> coppia : registro.entrySet()) {
 

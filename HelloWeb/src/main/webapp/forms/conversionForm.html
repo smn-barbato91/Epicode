@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Conversione temperature</title>
+</head>
+<body>
+<h1>Conversione temperatura</h1>
+<form action="../ConversionServlet" method = "post">
+<label>Da gradi</label>
+<input type =  "radio" name = "daGradi" value = "celsius" checked> gradi celsius
+<input type =  "radio" name = "daGradi" value = "kelvin"> gradi kelvin
+<input type =  "radio" name = "daGradi" value = "fahrenheit"> gradi fahrenheit
+<br>
+<label>A gradi</label>
+<input type =  "radio" name = "aGradi" value = "celsius" checked> gradi celsius
+<input type =  "radio" name = "aGradi" value = "kelvin"> gradi kelvin
+<input type =  "radio" name = "aGradi" value = "fahrenheit"> gradi fahrenheit
+<br>
+<label>Temperatura</label>
+<input type = "text" name = "valore">
+<br>
+<input type = "submit" value = "converti">
+</form>
+</body>
+</html>
