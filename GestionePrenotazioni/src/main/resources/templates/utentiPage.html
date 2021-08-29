@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script></head>
+<meta charset="ISO-8859-1">
+<title>Lista Utenti</title>
+<body>
+<h2>Lista Utenti</h2>
+
+	<table border="1">
+
+		<tr>
+			<th>ID</th>
+			<th></th>
+			<th>Nome utente</th>
+			<th></th>
+			<th>Username</th>
+			<th></th>
+			<th>Email</th>
+			
+		</tr>
+		
+	<tr th:each="u: ${listaUtenti}">
+	
+		<td><span th:text="${u.id}"></span></td>
+		<td></td>
+		<td><span th:text="${u.nomeCompleto}"></span></td>
+		<td></td>
+		<td><span th:text="${u.userName}"></span></td>
+		<td></td>
+		<td><span th:text="${u.email}"></span></td>
+		<form action="#" th:action="@{/listaPostazioniDisponibili}" method="get">
+			<input type="hidden" name="id" th:value="${u.id}"/>
+			<td><button type="button" onclick = 'this.form.submit();' class="btn btn-primary">Prenota</button>&nbsp;</td>
+		</form>
+		</tr>
+		</table>
+
+</body>
+</html>

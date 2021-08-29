@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Lista Prenotazioni</title>
+</head>
+<body>
+
+<h1>Elenco prenotazioni</h1>
+
+<table border="1">
+
+		<tr>
+			<th>ID</th>
+			<th></th>
+			<th>Nome utente</th>
+			<th></th>
+			<th>Username</th>
+			<th></th>
+			<th>Email</th>
+			<th></th>
+			<th>Data prenotazione</th>
+			<th>ID postazione</th>
+			<th>Tipo postazione</th>
+			<th>Nome edificio</th>
+			<th>Citta'</th>
+			<th>Indirizzo</th>
+			
+		</tr>
+		
+	<tr th:each="p: ${prenotazioni}">
+	
+		<td><span th:text="${p.id}"></span></td>
+		<td></td>
+		<td><span th:text="${p.utente.nomeCompleto}"></span></td>
+		<td></td>
+		<td><span th:text="${p.utente.userName}"></span></td>
+		<td></td>
+		<td><span th:text="${p.utente.email}"></span></td>
+		<td></td>
+		<td><span th:text="${p.data}"></span></td>
+		<td><span th:text="${p.postazione.id}"></span></td>
+		<td><span th:text="${p.postazione.tipo}"></span></td>
+		<td><span th:text="${p.postazione.edificio.nome}"></span></td>
+		<td><span th:text="${p.postazione.edificio.citta}"></span></td>
+		<td><span th:text="${p.postazione.edificio.indirizzo}"></span></td>
+		
+		</tr>
+		</table>
+	
+	
+
+</body>
+</html>

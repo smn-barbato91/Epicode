@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Prenotazione</title>
+</head>
+<body>
+<table border="1">
+
+		<tr>
+			<th>ID</th>
+			<th></th>
+			<th>Nome utente</th>
+			<th></th>
+			<th>Username</th>
+			<th></th>
+			<th>Email</th>
+			<th></th>
+			<th>Data prenotazione</th>
+			<th>ID postazione</th>
+			<th>Tipo postazione</th>
+			<th>Nome edificio</th>
+			<th>Citta'</th>
+			<th>Indirizzo</th>
+			
+		</tr>
+	<tr>
+		<td><span th:text="${cercata.id}"></span></td>
+		<td></td>
+		<td><span th:text="${cercata.utente.nomeCompleto}"></span></td>
+		<td></td>
+		<td><span th:text="${cercata.utente.userName}"></span></td>
+		<td></td>
+		<td><span th:text="${cercata.utente.email}"></span></td>
+		<td></td>
+		<td><span th:text="${cercata.data}"></span></td>
+		<td><span th:text="${cercata.postazione.id}"></span></td>
+		<td><span th:text="${cercata.postazione.tipo}"></span></td>
+		<td><span th:text="${cercata.postazione.edificio.nome}"></span></td>
+		<td><span th:text="${cercata.postazione.edificio.citta}"></span></td>
+		<td><span th:text="${cercata.postazione.edificio.indirizzo}"></span></td>
+	</tr>
+		
+		</table>
+</body>
+</html>
