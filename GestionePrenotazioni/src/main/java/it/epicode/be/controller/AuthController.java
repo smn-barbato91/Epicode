@@ -21,9 +21,6 @@ import it.epicode.be.security.login.LoginRequest;
 import it.epicode.be.security.login.LoginResponse;
 
 
-
-
-
 @RestController
 @RequestMapping("/api")
 public class AuthController {
