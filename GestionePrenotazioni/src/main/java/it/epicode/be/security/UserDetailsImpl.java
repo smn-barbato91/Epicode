@@ -1,6 +1,7 @@
 package it.epicode.be.security;
 
 import java.util.Collection;
+
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,8 +16,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 
+@SuppressWarnings("serial")
 @Data
 public class UserDetailsImpl implements UserDetails {
+	
 	private Long id;
 	private String username;
 	private String email;
