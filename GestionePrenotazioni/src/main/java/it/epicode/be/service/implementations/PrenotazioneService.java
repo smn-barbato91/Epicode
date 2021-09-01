@@ -112,11 +112,13 @@ public class PrenotazioneService implements AbstractReservationService {
 
 		Optional<User> u = utenteRepo.findById(prenotazione.getUtente().getId());
 		if (u.isEmpty()) {
-			throw new EntityNotFoundException(entityNotFound, User.class);
+			//throw new EntityNotFoundException(entityNotFound, User.class);
+			throw new EntityNotFoundException(User.class);
 		}
 		Optional<Postazione> p = postRepo.findById(prenotazione.getPostazione().getId());
 		if (p.isEmpty()) {
-			throw new EntityNotFoundException(entityNotFound, Postazione.class);
+			//throw new EntityNotFoundException(entityNotFound, Postazione.class);
+			throw new EntityNotFoundException(Postazione.class);
 		}
 
 		if (userHasOtherReservationForDay(u.get(), prenotazione.getDataUtilizzo(), prenotazione.getId())) {
@@ -146,7 +148,8 @@ public class PrenotazioneService implements AbstractReservationService {
 		Optional<Prenotazione> optPre = prenotRepo.findById(prenotazione.getId());
 
 		if (optPre.isEmpty()) {
-			throw new EntityNotFoundException(entityNotFound, Prenotazione.class);
+			//throw new EntityNotFoundException(entityNotFound, Prenotazione.class);
+			throw new EntityNotFoundException(Prenotazione.class);
 		}
 
 		applicaRegoleBusiness(prenotazione);
@@ -174,7 +177,8 @@ public class PrenotazioneService implements AbstractReservationService {
 	public void deletePrenotazioneById(long id) throws EntityNotFoundException {
 		Optional<Prenotazione> op = prenotRepo.findById(id);
 		if (op.isEmpty()) {
-			throw new EntityNotFoundException(entityNotFound, Prenotazione.class);
+			//throw new EntityNotFoundException(entityNotFound, Prenotazione.class);
+			throw new EntityNotFoundException(Prenotazione.class);
 		}
 		prenotRepo.deleteById(id);
 	}
